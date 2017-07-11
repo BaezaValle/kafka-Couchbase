@@ -1,0 +1,16 @@
+
+# Iniciar los servicios
+sudo zookeeper-server-start /etc/kafka/zookeeper.properties &
+sudo kafka-server-start /etc/kafka/server.properties &
+sudo schema-registry-start /etc/schema-registry/schema-registry.properties &
+
+# Conexión con couchbase
+sudo connect-standalone /etc/kafka-connect-couchbase/connect-standalone.properties /etc/kafka-connect-couchbase/quickstart-couchbase.properties
+
+# Ejemplo de consumidor de documentos por consola
+sudo kafka-avro-console-consumer --new-consumer --bootstrap-server localhost:9092 --topic test-couchbase --from-beginning
+
+
+
+
+
